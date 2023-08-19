@@ -1,23 +1,23 @@
-import express from "express";
-import { fileURLToPath } from 'url';
-import path from 'path';
-import hbs from "hbs";
+const express=require("express");
+const path=require("path");
+const hbs=require("hbs");
+
 
 const app=express();
-const __filename = fileURLToPath(import.meta.url);
-const ddirname = path.dirname(__filename);
-const pathName=path.join(ddirname,"../public");
-const template_path=path.join(ddirname,"../templates/views");
-const partial_path=path.join(ddirname,"../templates/partials");
+
+const staticPath=path.join(__dirname,"../public");
+const viewsPath=path.join(__dirname,"../templates/views");
+const partialsPath=path.join(__dirname,"../templates/partials");
+
 
 const PORT=process.env.PORT||7000;
 
 //public static path
 app.set("view engine","hbs");
-app.set("views",template_path);
-hbs.registerPartials(partial_path);
+app.set("views",viewsPath);
+hbs.registerPartials(partialsPath);
 
-app.use(express.static(pathName));
+app.use(express.static(staticPath));
 
 
 //routing
