@@ -14,6 +14,7 @@ const PORT=process.env.PORT||7000;
 
 //public static path
 app.set("view engine","hbs");
+
 app.set("views",viewsPath);
 hbs.registerPartials(partialsPath);
 
