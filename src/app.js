@@ -10,7 +10,7 @@ const pathName=path.join(ddirname,"../public");
 const template_path=path.join(ddirname,"../templates/views");
 const partial_path=path.join(ddirname,"../templates/partials");
 
-
+const PORT=process.env.PORT||7000;
 
 //public static path
 app.set("view engine","hbs");
@@ -36,6 +36,6 @@ app.get("*",(req,res)=>{
     });
 })
 
-app.listen(7000,()=>{
+app.listen(PORT,()=>{
     console.log("listening at port 7000");
 })
